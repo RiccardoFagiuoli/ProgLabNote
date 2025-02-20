@@ -7,8 +7,8 @@
 
 class Observer {
     public:
-        virtual void update() = 0;
-        virtual ~Observer() {};
+    virtual void update() = 0;
+    virtual ~Observer() {};
 };
 
 class Subject {
@@ -19,7 +19,7 @@ class Subject {
 
     virtual void removeObserver(Observer* o) = 0;
 
-    virtual void notifyObservers() = 0;
+    virtual void notifyObserver() = 0;
 };
 
 #endif //OBSERVER_H

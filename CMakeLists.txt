@@ -4,7 +4,9 @@ project(ProgLabNote)
 set(CMAKE_CXX_STANDARD 26)
 
 add_executable(ProgLabNote main.cpp
-        Note.h
+        Collezioni.cpp
+        Collezioni.h
         Note.cpp
+        Note.h
         Observer.h
 )

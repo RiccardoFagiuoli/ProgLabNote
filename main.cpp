@@ -10,8 +10,15 @@
 */
 
 #include <iostream>
+#include "Collezioni.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    //esempio di main
+    Note n1("Nota1", "Testo nota 1", "Collezione1", false, true);
+    Note n2("Nota2", "Testo nota 2", "Collezione1", false, false);
+    Note n3("Nota3", "Testo nota 3", "Collezione2", true, false);
+    Note n4("Nota4", "Testo nota 4", "Collezione2", false, true);
+    Note n5("Nota5", "Testo nota 5", "Collezione2", true, true);
+
     return 0;
 }

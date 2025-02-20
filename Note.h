@@ -4,41 +4,63 @@
 
 #ifndef NOTE_H
 #define NOTE_H
+
 #include <list>
-#include "Observer.h"
 #include <string>
+#include "Observer.h"
 
 using namespace std;
 
-class Note: public Subject {
+class Note: public Subject{
     private:
-        string title;
-        string text;
-        bool locked;
-        string collection;
-        bool important;
-        list<Observer*> observers;
+    string title;
+    string text;
+    bool locked;
+    string collection;
+    bool important;
+    list<Observer*> observers;
 
     public:
-        Note(string tl, string txt, string c, bool lck=false, bool i=false);
-        ~Note();
+    Note(string tl, string txt, string c, bool lck=false, bool i=false);
+    ~Note();
 
-        string getTitle() const;
-        string getText() const;
-        bool isLocked() const;
-        string getCollection() const;
-        bool isImportant() const;
+    string getTitle() const {
+        return title;
+    }
+    string getText() const {
+        return text;
+    }
+    bool isLocked() const {
+        return locked;
+    }
+    string getCollection() const {
+        return collection;
+    }
+    bool isImportant() const {
+        return important;
+    }
 
-        void setTitle(string tl);
-        void setText(string txt);
-        void setLocked(bool lck);
-        void setCollection(string c);
-        void setImportant(bool i);
+    void setTitle(string tl) {
+        title = tl;
+    }
+    void setText(string txt) {
+        text = txt;
+    }
+    void setLocked(bool lck) {
+        locked = lck;
+    }
+    void setCollection(string c) {
+        collection = c;
+    }
+    void setImportant(bool i) {
+        important = i;
+    }
 
-        void printNote() const;
+    void printNote() const;
 
-        void addObserver(Observer *o);
-        void removeObserver(Observer *o);
-        void notifyObserver();
+    void addObserver(Observer *o) override;
+    void removeObserver(Observer *o) override;
+    void notifyObserver() override;
 };
+
 #endif //NOTE_H
