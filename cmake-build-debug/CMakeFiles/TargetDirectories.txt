@@ -1,0 +1,3 @@
+C:/Users/Riccardo/CLionProjects/ProgLabNote/cmake-build-debug/CMakeFiles/ProgLabNote.dir
+C:/Users/Riccardo/CLionProjects/ProgLabNote/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Riccardo/CLionProjects/ProgLabNote/cmake-build-debug/CMakeFiles/rebuild_cache.dir
