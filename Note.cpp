@@ -5,7 +5,7 @@
 #include "Note.h"
 #include <iostream>
 
-Note::Note(string tl, string txt, string c, bool lck, bool i): title(tl), text(txt), collection(c), locked(lck), important(i) {
+Note::Note(const string& tl, const string& txt, const string& c, bool lck, bool i): title(tl), text(txt), collection(c), locked(lck), important(i) {
     notifyObserver();
 }
 Note::~Note() {}
@@ -19,13 +19,13 @@ void Note::printNote() const {
     cout << "Important: " << important << endl;
 }
 
-void Note::addObserver(Observer *o) {
+void Note::addObserver(Observer *o) override{
     observers.push_back(o);
 }
-void Note::removeObserver(Observer *o) {
+void Note::removeObserver(Observer *o) override {
     observers.remove(o);
 }
-void Note::notifyObserver()  {
+void Note::notifyObserver() override {
     for (auto o : observers) {
         o->update();
     }

@@ -8,7 +8,7 @@
 
 using namespace std;
 
-Collezioni::Collezioni(string n): name(n){};
+Collezioni::Collezioni(const string& n): name(n){};
 Collezioni::~Collezioni() {};
 
 void Collezioni::printNotes() const {

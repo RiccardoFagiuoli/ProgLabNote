@@ -21,7 +21,7 @@ class Note: public Subject{
     list<Observer*> observers;
 
     public:
-    Note(string tl, string txt, string c, bool lck=false, bool i=false);
+    Note(const string& tl, const string& txt, const string& c, bool lck=false, bool i=false);
     ~Note();
 
     string getTitle() const {
@@ -43,17 +43,28 @@ class Note: public Subject{
     void setTitle(string tl) {
         title = tl;
     }
-    void setText(string txt) {
-        text = txt;
+    void changeText(string txt) {
+        if (!locked) {
+            text = txt;
+        }
     }
     void setLocked(bool lck) {
         locked = lck;
     }
     void setCollection(string c) {
-        collection = c;
+        if (!locked) {
+            collection = c;
+        }
     }
     void setImportant(bool i) {
-        important = i;
+        if (!locked) {
+            important = i;
+        }
+    }
+    void delNote() {
+        if (!locked) {
+            delete this;
+        }
     }
 
     void printNote() const;

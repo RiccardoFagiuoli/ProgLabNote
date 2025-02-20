@@ -17,7 +17,7 @@ class Collezioni: public Observer {
     string name;
     list<Note*> notes;
     public:
-    Collezioni(string n);
+    Collezioni(const string& n);
     ~Collezioni();
 
     string getName() const {
