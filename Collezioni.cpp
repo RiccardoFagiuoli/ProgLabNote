@@ -6,10 +6,17 @@
 #include "Note.h"
 #include <iostream>
 
+
 using namespace std;
 
-Collezioni::Collezioni(const string& n): name(n){};
-Collezioni::~Collezioni() {};
+Collezioni::Collezioni(const string& n): name(n) {
+    addObserver(new NumNote);
+};
+Collezioni::~Collezioni() {
+    for (auto o : observers) {
+        delete o;
+    }
+};
 
 void Collezioni::printNotes() const {
     cout << "Collection: " << name << endl;
@@ -17,7 +24,3 @@ void Collezioni::printNotes() const {
         cout << "Note " << n << ": " << n->getTitle() << endl;
     }
 }
-
-void Collezioni::update() {
-    cout << "Collection " << this->getName() << " has " << this->getNumNotes() << " notes." << endl;
-};

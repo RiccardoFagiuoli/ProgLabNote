@@ -11,14 +11,42 @@
 
 #include <iostream>
 #include "Collezioni.h"
+#include "NumNote.h"
+
+
 
 int main() {
     //esempio di main
-    Note n1("Nota1", "Testo nota 1", "Collezione1", false, true);
-    Note n2("Nota2", "Testo nota 2", "Collezione1", false, false);
-    Note n3("Nota3", "Testo nota 3", "Collezione2", true, false);
-    Note n4("Nota4", "Testo nota 4", "Collezione2", false, true);
-    Note n5("Nota5", "Testo nota 5", "Collezione2", true, true);
+    Collezioni casella("Casella");
+
+    auto nota1 = std::make_shared<Note>("Nota 1", "Testo della nota 1");
+    auto nota2 = std::make_shared<Note>("Nota 2", "Testo della nota 2");
+
+    casella.addNote(nota1);
+    casella.addNote(nota2);
+
+    casella.setImportant(nota1);
+
+    // Stampa le note importanti
+    std::cout << "Note importanti:" << std::endl;
+    for (const auto& nota : casella.getImportantNote()){
+        std::cout << "- " << nota->getTitle() << std::endl;
+    }
+
+    // Rimuovi nota1 dalle note importanti
+    casella.notImportant(nota1);
+
+    // Stampa nuovamente le note importanti
+    std::cout << "Note importanti dopo la rimozione:" << std::endl;
+    for (const auto& nota : casella.getImportantNote()){
+        std::cout << "- " << nota->getTitle() << std::endl;
+    }
+
+    Collezioni collezione2("Collezione 2");
+    auto nota3 = std::make_shared<Note>("Nota 3", "Testo della nota 3");
+    collezione2.addNote(nota3);
+
+
 
     return 0;
 }

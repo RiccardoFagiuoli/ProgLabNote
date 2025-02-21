@@ -9,4 +9,5 @@ add_executable(ProgLabNote main.cpp
         Note.cpp
         Note.h
         Observer.h
+        NumNote.h
 )

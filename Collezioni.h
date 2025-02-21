@@ -5,17 +5,26 @@
 #ifndef COLLEZIONI_H
 #define COLLEZIONI_H
 #include <list>
+#include <memory>
 #include <string>
-#include "Observer.h"
 #include "Note.h"
+#include "NumNote.h"
 
 using namespace std;
-class Note;
 
-class Collezioni: public Observer {
+class Collezioni{
     private:
     string name;
-    list<Note*> notes;
+    list<shared_ptr<Note>> notes;
+    list<shared_ptr<Note>> importantNotes;
+    list<Observer*> observers;
+
+    void notifyObserver(const string& c) {
+        for (auto o : observers) {
+            o->update(notes.size(),c);
+        }
+    }
+
     public:
     Collezioni(const string& n);
     ~Collezioni();
@@ -23,13 +32,54 @@ class Collezioni: public Observer {
     string getName() const {
         return name;
     }
-    void addNote(Note *n) {
-        notes.push_back(n);
-        n->addObserver(this);
+    list<shared_ptr<Note>> getNote() {
+        return notes;
     }
-    void removeNote(Note *n) {
-        notes.remove(n);
-        n->removeObserver(this);
+    list<shared_ptr<Note>> getImportantNote() {
+        return importantNotes;
+    }
+
+    void addNote(const shared_ptr<Note>& n) {
+        notes.push_back(n);
+        if (n->isImportant()) {
+            importantNotes.push_back(n);
+        }
+        notifyObserver(this->name);
+    }
+    void removeNote(shared_ptr<Note>& n) {
+        if (!n->isLocked()) {
+            notes.remove(n);
+            if (n->isImportant()) {
+                importantNotes.remove(n);
+            }
+            notifyObserver(this->name);
+        }
+    }
+
+    void setImportant(shared_ptr<Note>& n) {
+        if (!n->isLocked()) {
+            if (!n->isImportant()) {
+                n->setImportant(true);
+                importantNotes.push_back(n);
+            }
+        }
+    }
+
+    void notImportant(shared_ptr<Note>& n) {
+        if (!n->isLocked()) {
+            if (n->isImportant()) {
+                n->setImportant(false);
+                importantNotes.remove(n);
+            }
+        }
+    }
+
+    void addObserver(Observer* o) {
+        observers.push_back(o);
+    }
+
+    void removeObserver(Observer* o) {
+        observers.remove(o);
     }
 
     void printNotes() const;
@@ -37,7 +87,7 @@ class Collezioni: public Observer {
         return notes.size();
     }
 
-    void update() override;
+
 
 
 };
