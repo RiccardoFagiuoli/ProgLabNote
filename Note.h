@@ -10,7 +10,7 @@
 #include "Observer.h"
 
 using namespace std;
-
+//NOte è observer di collezioni ch è subject
 class Note: public Subject{
     private:
     string title;
