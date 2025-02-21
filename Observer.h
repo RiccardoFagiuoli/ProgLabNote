@@ -11,4 +11,12 @@ class Observer {
     virtual ~Observer() {};
 };
 
+class Subject {
+    public:
+    virtual void addObserver(Observer* o) = 0;
+    virtual void removeObserver(Observer* o) = 0;
+    virtual void notifyObserver(const string& c) = 0;
+    virtual ~Subject() {};
+};
+
 #endif //OBSERVER_H

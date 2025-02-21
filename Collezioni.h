@@ -8,22 +8,17 @@
 #include <memory>
 #include <string>
 #include "Note.h"
-#include "NumNote.h"
+#include "Observer.h"
+# include "NumNote.h"
 
 using namespace std;
 
-class Collezioni{
+class Collezioni: public Subject {
     private:
     string name;
     list<shared_ptr<Note>> notes;
     list<shared_ptr<Note>> importantNotes;
     list<Observer*> observers;
-
-    void notifyObserver(const string& c) {
-        for (auto o : observers) {
-            o->update(notes.size(),c);
-        }
-    }
 
     public:
     Collezioni(const string& n);
@@ -74,11 +69,13 @@ class Collezioni{
         }
     }
 
-    void addObserver(Observer* o) {
+    void notifyObserver(const string& c) override;
+
+    void addObserver(Observer* o) override{
         observers.push_back(o);
     }
 
-    void removeObserver(Observer* o) {
+    void removeObserver(Observer* o) override {
         observers.remove(o);
     }
 

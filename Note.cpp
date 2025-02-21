@@ -6,7 +6,7 @@
 #include "Collezioni.h"
 #include <iostream>
 
-Note::Note(const string& tl, const string& txt,bool lck, bool i): title(tl), text(txt), locked(lck), important(i) {}
+Note::Note(const string& tl, const string& txt, bool lck, bool i): title(tl), text(txt), locked(lck), important(i) {}
 Note::~Note() {}
 
 

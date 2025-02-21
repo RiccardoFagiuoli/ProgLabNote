@@ -10,7 +10,7 @@
 using namespace std;
 
 Collezioni::Collezioni(const string& n): name(n) {
-    addObserver(new NumNote);
+    addObserver(new NumNote());
 };
 Collezioni::~Collezioni() {
     for (auto o : observers) {
@@ -22,5 +22,11 @@ void Collezioni::printNotes() const {
     cout << "Collection: " << name << endl;
     for (auto n : notes) {
         cout << "Note " << n << ": " << n->getTitle() << endl;
+    }
+}
+
+void Collezioni::notifyObserver(const string& c) {
+    for (auto o : observers) {
+        o->update(notes.size(),c);
     }
 }

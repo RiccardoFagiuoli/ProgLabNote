@@ -19,13 +19,14 @@ int main() {
     //esempio di main
     Collezioni casella("Casella");
 
-    auto nota1 = std::make_shared<Note>("Nota 1", "Testo della nota 1");
-    auto nota2 = std::make_shared<Note>("Nota 2", "Testo della nota 2");
+    auto nota1 = make_shared<Note>("Nota 1", "Testo della nota 1");
+    auto nota2 = make_shared<Note>("Nota 2", "Testo della nota 2");
 
     casella.addNote(nota1);
     casella.addNote(nota2);
 
     casella.setImportant(nota1);
+    casella.removeNote(nota1);
 
     // Stampa le note importanti
     std::cout << "Note importanti:" << std::endl;
@@ -46,6 +47,9 @@ int main() {
     auto nota3 = std::make_shared<Note>("Nota 3", "Testo della nota 3");
     collezione2.addNote(nota3);
 
+    nota1->setLocked(true);
+    nota1->setText("Testo modificato");
+    nota1->printNote();
 
 
     return 0;
