@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/Riccardo/Documents/Documenti/UNIFI/I Anno/I Semestre/Fondamenti di Informatica/ProgLabNote/Collezioni.cpp" "CMakeFiles/ProgLabNote.dir/Collezioni.cpp.obj" "gcc" "CMakeFiles/ProgLabNote.dir/Collezioni.cpp.obj.d"
+  "C:/Users/Riccardo/Documents/Documenti/UNIFI/I Anno/I Semestre/Fondamenti di Informatica/ProgLabNote/Importanti.cpp" "CMakeFiles/ProgLabNote.dir/Importanti.cpp.obj" "gcc" "CMakeFiles/ProgLabNote.dir/Importanti.cpp.obj.d"
   "C:/Users/Riccardo/Documents/Documenti/UNIFI/I Anno/I Semestre/Fondamenti di Informatica/ProgLabNote/Note.cpp" "CMakeFiles/ProgLabNote.dir/Note.cpp.obj" "gcc" "CMakeFiles/ProgLabNote.dir/Note.cpp.obj.d"
   "C:/Users/Riccardo/Documents/Documenti/UNIFI/I Anno/I Semestre/Fondamenti di Informatica/ProgLabNote/main.cpp" "CMakeFiles/ProgLabNote.dir/main.cpp.obj" "gcc" "CMakeFiles/ProgLabNote.dir/main.cpp.obj.d"
   )

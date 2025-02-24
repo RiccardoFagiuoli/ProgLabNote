@@ -1,11 +1,11 @@
 //
 // Created by Riccardo on 20/02/2025.
 //
-
-#include "Note.h"
 #include <iostream>
-#include "Collezioni.h"
 #include "Note.h"
+#include "Collezioni.h"
+#include "Importanti.h"
+
 
 Note::Note(const string& tl, const string& txt, Collezioni* c, bool lck, bool i): title(tl), text(txt), collection(c), locked(lck), important(i) {
     c->addObserver(this);
@@ -13,10 +13,11 @@ Note::Note(const string& tl, const string& txt, Collezioni* c, bool lck, bool i)
 }
 
 Note::~Note() {
+    /*
     if (this->collection != NULL) {
         this->collection->removeObserver(this);
         this->collection->removeNote(this);
-    }
+    }*/
 }
 void Note::setCollection(Collezioni* c) {
     if (!locked) {
@@ -33,13 +34,13 @@ void Note::setCollection(Collezioni* c) {
 void Note::setImportant(bool i) {
     if (!locked) {
         if (i) {
-            collection->addImportant(this);
+            impNote->addImportant(this);
             if (!important) {
                 important = i;
             }
         }
         else {
-            collection->removeImportant(this);
+            impNote->removeImportant(this);
             if (important) {
                 important = i;
             }
@@ -64,12 +65,5 @@ void Note::printNote() const {
 
 void Note::update() {
     int collSize= this->collection->getNumNotes();
-    cout << "Collezione " << this->collection->getName() << " ha " << collSize << " note" << endl;
+    cout << collSize;
 };
-
-//TODO: Implementare il metodo Importantupdate
-/*
-void Note::Importantupdate() {
-    int collSize= this->collection->getNumNotes();
-    cout << "Collezione " << this->collection->getName() << " ha " << collSize << " note" << endl;
-};*/
