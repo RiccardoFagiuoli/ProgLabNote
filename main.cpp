@@ -18,7 +18,7 @@ int main() {
     Collezioni c0("Collezione0");
     Note n0("Nota0", "Testo0", &c0);
     c0.removeNote(&n0);
-    //stampa riga vuota
+
     cout << endl;
 
     Collezioni c("Collezione1");
@@ -26,6 +26,7 @@ int main() {
     Note n2("Nota2", "Testo2", &c);
     Note n3("Nota3", "Testo3", &c);
     Note n4("Nota4", "Testo4", &c);
+
     cout << endl;
 
     Collezioni c2("Collezione2");
@@ -33,6 +34,7 @@ int main() {
     Note n6("Nota6", "Testo6", &c2);
     Note n7("Nota7", "Testo7", &c2);
     Note n8("Nota8", "Testo8", &c2);
+
     cout << endl;
     //rimozione di una nota
     c.removeNote(&n1);
