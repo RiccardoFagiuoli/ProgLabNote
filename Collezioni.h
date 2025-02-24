@@ -10,12 +10,15 @@
 #include "Note.h"
 
 using namespace std;
+
 class Note;
 
-class Collezioni: public Observer {
+class Collezioni: public Subject {
     private:
     string name;
     list<Note*> notes;
+    list<Observer*> observers;
+
     public:
     Collezioni(const string& n);
     ~Collezioni();
@@ -23,21 +26,25 @@ class Collezioni: public Observer {
     string getName() const {
         return name;
     }
-    void addNote(Note *n) {
-        notes.push_back(n);
-        n->addObserver(this);
-    }
-    void removeNote(Note *n) {
-        notes.remove(n);
-        n->removeObserver(this);
-    }
+
+    void addNote(Note *n);
+
+    void removeNote(Note *n);
 
     void printNotes() const;
+
     int getNumNotes() const {
         return notes.size();
     }
 
-    void update() override;
+    //getNote list
+    list<Note*> getNotes() const {
+        return notes;
+    }
+
+    void addObserver(Observer *o) override;
+    void removeObserver(Observer *o) override;
+    void notifyObserver() override;
 
 
 };

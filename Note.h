@@ -7,21 +7,23 @@
 
 #include <list>
 #include <string>
+
+#include "Collezioni.h"
 #include "Observer.h"
 
 using namespace std;
-//NOte è observer di collezioni ch è subject
-class Note: public Subject{
+class Collezioni;
+
+class Note: public Observer{
     private:
     string title;
     string text;
     bool locked;
-    string collection;
+    Collezioni* collection;
     bool important;
-    list<Observer*> observers;
 
     public:
-    Note(const string& tl, const string& txt, const string& c, bool lck=false, bool i=false);
+    Note(const string& tl, const string& txt, Collezioni* c = NULL, bool lck=false, bool i=false);
     ~Note();
 
     string getTitle() const {
@@ -33,9 +35,10 @@ class Note: public Subject{
     bool isLocked() const {
         return locked;
     }
-    string getCollection() const {
-        return collection;
+    Collezioni& getCollection() const {
+        return *collection;
     }
+
     bool isImportant() const {
         return important;
     }
@@ -51,11 +54,10 @@ class Note: public Subject{
     void setLocked(bool lck) {
         locked = lck;
     }
-    void setCollection(string c) {
-        if (!locked) {
-            collection = c;
-        }
+    void setCollection(Collezioni* c) {
+        collection = c;
     }
+
     void setImportant(bool i) {
         if (!locked) {
             important = i;
@@ -69,9 +71,9 @@ class Note: public Subject{
 
     void printNote() const;
 
-    void addObserver(Observer *o) override;
-    void removeObserver(Observer *o) override;
-    void notifyObserver() override;
+    void update() override;
+
+    void getCollection();
 };
 
 #endif //NOTE_H
