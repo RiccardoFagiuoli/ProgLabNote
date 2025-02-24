@@ -46,5 +46,26 @@ int main() {
     n2.printNote();
     n3.printNote();
     n4.printNote();
+
+    cout << endl;
+    cout << endl;
+    c0.printCollezione();
+    cout << endl;
+    c.printCollezione();
+    cout << endl;
+    c2.printCollezione();
+
+
+    //aggiungo note a importanti
+    c.addImportant(&n1);
+    c.addImportant(&n2);
+    c2.addImportant(&n5);
+
+    //stampo note importanti
+    c.printImportantNotes();
+
+    //rimuovo note importanti
+    c.removeImportant(&n1);
+
     return 0;
 }

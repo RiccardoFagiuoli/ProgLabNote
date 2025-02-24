@@ -16,33 +16,62 @@ Collezioni::~Collezioni() {
     }
 };
 
-void Collezioni::printNotes() const {
-    cout << "Collection: " << name << endl;
-    for (auto n : notes) {
-        cout << "Note " << n << ": " << n->getTitle() << endl;
-    }
-}
 void Collezioni::addNote(Note *n) {
     this->notes.push_back(n);
     notifyObserver();
 }
 
 void Collezioni::removeNote(Note *n) {
-    if (notes.empty()) {
-        cout << "Collection " << name << " is empty." << endl;
-        return;
+    if (this->notes.empty()) {
+        cout << "La collezione " << name << " e' vuota." << endl;
     }
-    for (auto it = notes.begin(); it != notes.end(); it++) {
+    else {
+        for (auto it = notes.begin(); it != notes.end(); it++) {
+            if (*it == n) {
+                this->notes.erase(it);
+                n->setCollection(NULL);
+                notifyObserver();
+            }
+            else if (it == notes.end()) {
+                cout << "la nota " << n->getTitle() << " non e' presente nella collezione " << name << "." << endl;
+            }
+            else if (this->notes.empty()) {
+                break;
+            }
+        }
+    }
+}
+
+void Collezioni::printCollezione() const {
+    if (this->getNumNotes() == 0) {
+        cout << "La collezione " << name << " e' vuota" << endl;
+    }
+    else {
+        cout << "Collezione: " << name << endl;
+        for (auto n : notes) {
+            cout << "Nota " << n << ": " << n->getTitle() << endl;
+        }
+    }
+}
+
+void Collezioni::addImportant(Note *n) {
+    importantNotes.push_back(n);
+    notifyObserver();
+}
+
+void Collezioni::removeImportant(Note *n) {
+    for (auto it = importantNotes.begin(); it != importantNotes.end(); it++) {
         if (*it == n) {
-            notes.erase(it);
-            n->setCollection(NULL);
+            importantNotes.erase(it);
             notifyObserver();
             return;
         }
-        else {
-            cout << "Note " << n->getTitle() << " not found in collection " << name << "." << endl;
-            return;
-        }
+    }
+}
+
+void Collezioni::printImportantNotes() const {
+    for (auto n : importantNotes) {
+        cout << "Nota importante: " << n->getTitle() << endl;
     }
 }
 

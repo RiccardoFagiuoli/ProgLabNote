@@ -18,8 +18,10 @@ class Collezioni: public Subject {
     string name;
     list<Note*> notes;
     list<Observer*> observers;
+    static list <Note*> importantNotes;
 
     public:
+
     Collezioni(const string& n);
     ~Collezioni();
 
@@ -31,8 +33,6 @@ class Collezioni: public Subject {
 
     void removeNote(Note *n);
 
-    void printNotes() const;
-
     int getNumNotes() const {
         return notes.size();
     }
@@ -42,11 +42,19 @@ class Collezioni: public Subject {
         return notes;
     }
 
+    list<Note*> getImportantNotes() const {
+        return importantNotes;
+    }
+
+    void printImportantNotes() const;
+    void printCollezione() const;
     void addObserver(Observer *o) override;
     void removeObserver(Observer *o) override;
     void notifyObserver() override;
 
+    void addImportant(Note * n);
 
+    void removeImportant(Note * n);
 };
 
 #endif //COLLEZIONI_H

@@ -13,12 +13,39 @@ Note::Note(const string& tl, const string& txt, Collezioni* c, bool lck, bool i)
 }
 
 Note::~Note() {
-    this->collection->removeObserver(this);
-    if (collection != NULL) {
-        collection->removeNote(this);
+    if (this->collection != NULL) {
+        this->collection->removeObserver(this);
+        this->collection->removeNote(this);
+    }
+}
+void Note::setCollection(Collezioni* c) {
+    if (!locked) {
+        if (collection != NULL) {
+            collection->removeObserver(this);
+        }
+        if (c != NULL) {
+            c->addObserver(this);
+        }
+        collection = c;
     }
 }
 
+void Note::setImportant(bool i) {
+    if (!locked) {
+        if (i) {
+            collection->addImportant(this);
+            if (!important) {
+                important = i;
+            }
+        }
+        else {
+            collection->removeImportant(this);
+            if (important) {
+                important = i;
+            }
+        }
+    }
+}
 
 void Note::printNote() const {
     string coll;
@@ -28,14 +55,14 @@ void Note::printNote() const {
     else {
         coll= collection->getName();
     }
-    cout << "Title: " << title << endl;
-    cout << "Text: " << text << endl;
-    cout << "Collection: " << coll << endl;
-    cout << "Locked: " << locked << endl;
-    cout << "Important: " << important << endl;
+    cout << "Titolo: " << title << endl;
+    cout << "Testo: " << text << endl;
+    cout << "Collezione: " << coll << endl;
+    cout << "Lucchetto: " << locked << endl;
+    cout << "Importante: " << important << endl;
 }
 
 void Note::update() {
     int collSize= this->collection->getNumNotes();
-    cout << "Collection " << this->collection->getName() << " has " << collSize << " notes." << endl;
+    cout << "Collezione " << this->collection->getName() << " ha " << collSize << " note" << endl;
 };

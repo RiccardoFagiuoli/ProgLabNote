@@ -54,15 +54,10 @@ class Note: public Observer{
     void setLocked(bool lck) {
         locked = lck;
     }
-    void setCollection(Collezioni* c) {
-        collection = c;
-    }
+    void setCollection(Collezioni* c);
 
-    void setImportant(bool i) {
-        if (!locked) {
-            important = i;
-        }
-    }
+    void setImportant(bool i);
+
     void delNote() {
         if (!locked) {
             delete this;
