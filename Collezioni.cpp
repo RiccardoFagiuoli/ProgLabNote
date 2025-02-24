@@ -7,14 +7,14 @@
 #include <iostream>
 
 using namespace std;
-list <Note*> Collezioni::importantNotes;
 
 Collezioni::Collezioni(const string& n): name(n) {};
 Collezioni::~Collezioni() {
+    /*
     for (auto n : notes) {
         notes.remove(n);
         delete n;
-    }
+    }*/
 };
 
 void Collezioni::addNote(Note *n) {
@@ -55,30 +55,6 @@ void Collezioni::printCollezione() const {
     }
 }
 
-void Collezioni::addImportant(Note *n) {
-    importantNotes.push_back(n);
-}
-
-void Collezioni::removeImportant(Note *n) {
-    for (auto it = importantNotes.begin(); it != importantNotes.end(); it++) {
-        if (*it == n) {
-            importantNotes.erase(it);
-            return;
-        }
-    }
-}
-
-void Collezioni::printImportantNotes() const {
-    if (importantNotes.empty()) {
-        cout << "Non ci sono note importanti nella collezione " << name << "." << endl;
-    }
-    else {
-        for (auto n : importantNotes) {
-            cout << "Nota importante: " << n->getTitle() << endl;
-        }
-    }
-}
-
 void Collezioni::addObserver(Observer *o) {
     observers.push_back(o);
 }
@@ -88,7 +64,9 @@ void Collezioni::removeObserver(Observer *o) {
 
 void Collezioni::notifyObserver() {
     if (this->getNotes().front() != NULL) {
+        cout << "Collezione " << this->getName() << " ha ";
         this->getNotes().front()->update();
+        cout << " note" << endl;
     }
     else {
         cout << "Collection " << name << " is empty." << endl;
