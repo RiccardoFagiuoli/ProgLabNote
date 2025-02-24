@@ -152,6 +152,30 @@ Collezioni.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProgLabNote.dir\build.make CMakeFiles/ProgLabNote.dir/Collezioni.cpp.s
 .PHONY : Collezioni.cpp.s
 
+Importanti.obj: Importanti.cpp.obj
+.PHONY : Importanti.obj
+
+# target to build an object file
+Importanti.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProgLabNote.dir\build.make CMakeFiles/ProgLabNote.dir/Importanti.cpp.obj
+.PHONY : Importanti.cpp.obj
+
+Importanti.i: Importanti.cpp.i
+.PHONY : Importanti.i
+
+# target to preprocess a source file
+Importanti.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProgLabNote.dir\build.make CMakeFiles/ProgLabNote.dir/Importanti.cpp.i
+.PHONY : Importanti.cpp.i
+
+Importanti.s: Importanti.cpp.s
+.PHONY : Importanti.s
+
+# target to generate assembly for a file
+Importanti.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProgLabNote.dir\build.make CMakeFiles/ProgLabNote.dir/Importanti.cpp.s
+.PHONY : Importanti.cpp.s
+
 Note.obj: Note.cpp.obj
 .PHONY : Note.obj
 
@@ -212,6 +236,9 @@ help:
 	@echo ... Collezioni.obj
 	@echo ... Collezioni.i
 	@echo ... Collezioni.s
+	@echo ... Importanti.obj
+	@echo ... Importanti.i
+	@echo ... Importanti.s
 	@echo ... Note.obj
 	@echo ... Note.i
 	@echo ... Note.s
