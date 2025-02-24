@@ -66,6 +66,8 @@ void Note::update() {
     int collSize= this->collection->getNumNotes();
     cout << "Collezione " << this->collection->getName() << " ha " << collSize << " note" << endl;
 };
+
+//TODO: Implementare il metodo Importantupdate
 /*
 void Note::Importantupdate() {
     int collSize= this->collection->getNumNotes();
