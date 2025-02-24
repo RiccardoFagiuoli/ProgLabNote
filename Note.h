@@ -7,8 +7,6 @@
 
 #include <list>
 #include <string>
-
-#include "Collezioni.h"
 #include "Observer.h"
 
 using namespace std;

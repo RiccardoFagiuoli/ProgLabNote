@@ -37,6 +37,7 @@ int main() {
 
     cout << endl;
     //rimozione di una nota
+    n1.printNote();
     c.removeNote(&n1);
     c.removeNote(&n5);
 
@@ -55,15 +56,17 @@ int main() {
     cout << endl;
     c2.printCollezione();
 
-
+    cout << endl;
     //aggiungo note a importanti
     c.addImportant(&n1);
     c.addImportant(&n2);
     c2.addImportant(&n5);
 
+    cout << endl;
     //stampo note importanti
     c.printImportantNotes();
 
+    cout << endl;
     //rimuovo note importanti
     c.removeImportant(&n1);
 

@@ -4,8 +4,8 @@
 
 #include "Note.h"
 #include <iostream>
-
 #include "Collezioni.h"
+#include "Note.h"
 
 Note::Note(const string& tl, const string& txt, Collezioni* c, bool lck, bool i): title(tl), text(txt), collection(c), locked(lck), important(i) {
     c->addObserver(this);
@@ -63,6 +63,11 @@ void Note::printNote() const {
 }
 
 void Note::update() {
+    int collSize= this->collection->getNumNotes();
+    cout << "Collezione " << this->collection->getName() << " ha " << collSize << " note" << endl;
+};
+
+void Note::Importantupdate() {
     int collSize= this->collection->getNumNotes();
     cout << "Collezione " << this->collection->getName() << " ha " << collSize << " note" << endl;
 };

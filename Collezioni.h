@@ -7,7 +7,6 @@
 #include <list>
 #include <string>
 #include "Observer.h"
-#include "Note.h"
 
 using namespace std;
 

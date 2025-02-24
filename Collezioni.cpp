@@ -7,6 +7,7 @@
 #include <iostream>
 
 using namespace std;
+list <Note*> Collezioni::importantNotes;
 
 Collezioni::Collezioni(const string& n): name(n) {};
 Collezioni::~Collezioni() {
@@ -31,12 +32,11 @@ void Collezioni::removeNote(Note *n) {
                 this->notes.erase(it);
                 n->setCollection(NULL);
                 notifyObserver();
+                return;
             }
             else if (it == notes.end()) {
                 cout << "la nota " << n->getTitle() << " non e' presente nella collezione " << name << "." << endl;
-            }
-            else if (this->notes.empty()) {
-                break;
+                return;
             }
         }
     }
@@ -48,30 +48,34 @@ void Collezioni::printCollezione() const {
     }
     else {
         cout << "Collezione: " << name << endl;
+        int i=1;
         for (auto n : notes) {
-            cout << "Nota " << n << ": " << n->getTitle() << endl;
+            cout << "Nota " << i++ << ": " << n->getTitle() << endl;
         }
     }
 }
 
 void Collezioni::addImportant(Note *n) {
     importantNotes.push_back(n);
-    notifyObserver();
 }
 
 void Collezioni::removeImportant(Note *n) {
     for (auto it = importantNotes.begin(); it != importantNotes.end(); it++) {
         if (*it == n) {
             importantNotes.erase(it);
-            notifyObserver();
             return;
         }
     }
 }
 
 void Collezioni::printImportantNotes() const {
-    for (auto n : importantNotes) {
-        cout << "Nota importante: " << n->getTitle() << endl;
+    if (importantNotes.empty()) {
+        cout << "Non ci sono note importanti nella collezione " << name << "." << endl;
+    }
+    else {
+        for (auto n : importantNotes) {
+            cout << "Nota importante: " << n->getTitle() << endl;
+        }
     }
 }
 
