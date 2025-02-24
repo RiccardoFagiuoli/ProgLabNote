@@ -14,7 +14,9 @@ Note::Note(const string& tl, const string& txt, Collezioni* c, bool lck, bool i)
 
 Note::~Note() {
     this->collection->removeObserver(this);
-    this->collection->removeNote(this);
+    if (collection != NULL) {
+        collection->removeNote(this);
+    }
 }
 
 
