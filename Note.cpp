@@ -56,7 +56,6 @@ void Note::delNote() {
         }
         if (important) {
             //rimozionde della nota dalla lista delle importanti
-
         }
         delete this;
         cout << "Nota " << n << " eliminata" << endl;
