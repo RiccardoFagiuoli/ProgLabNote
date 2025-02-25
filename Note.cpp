@@ -57,11 +57,6 @@ void Note::delNote() {
         if (collection != NULL) {
             collection->removeNote(this);
         }
-        /*
-        if (important) {
-            important = false;
-            ImportantNotes->removeNote(this);
-        }*/
         delete this;
         cout << "Nota " << n << " eliminata" << endl;
     }
