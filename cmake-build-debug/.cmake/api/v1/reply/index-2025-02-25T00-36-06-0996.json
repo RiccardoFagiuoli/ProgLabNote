@@ -26,7 +26,11 @@
 	"objects" : 
 	[
 		{
+<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/index-2025-02-25T00-36-06-0996.json
 			"jsonFile" : "codemodel-v2-5b645969d4e9efda196a.json",
+========
+			"jsonFile" : "codemodel-v2-c4b20659ceb4eb1e79e8.json",
+>>>>>>>> origin/master:cmake-build-debug/.cmake/api/v1/reply/index-2025-02-25T00-34-30-0750.json
 			"kind" : "codemodel",
 			"version" : 
 			{
@@ -44,7 +48,11 @@
 			}
 		},
 		{
+<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/index-2025-02-25T00-36-06-0996.json
 			"jsonFile" : "cmakeFiles-v1-19fb631ec0eeb53dbcdf.json",
+========
+			"jsonFile" : "cmakeFiles-v1-f23d1a38d9e51821592f.json",
+>>>>>>>> origin/master:cmake-build-debug/.cmake/api/v1/reply/index-2025-02-25T00-34-30-0750.json
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -76,7 +84,11 @@
 		},
 		"cmakeFiles-v1" : 
 		{
+<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/index-2025-02-25T00-36-06-0996.json
 			"jsonFile" : "cmakeFiles-v1-19fb631ec0eeb53dbcdf.json",
+========
+			"jsonFile" : "cmakeFiles-v1-f23d1a38d9e51821592f.json",
+>>>>>>>> origin/master:cmake-build-debug/.cmake/api/v1/reply/index-2025-02-25T00-34-30-0750.json
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -86,7 +98,11 @@
 		},
 		"codemodel-v2" : 
 		{
+<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/index-2025-02-25T00-36-06-0996.json
 			"jsonFile" : "codemodel-v2-5b645969d4e9efda196a.json",
+========
+			"jsonFile" : "codemodel-v2-c4b20659ceb4eb1e79e8.json",
+>>>>>>>> origin/master:cmake-build-debug/.cmake/api/v1/reply/index-2025-02-25T00-34-30-0750.json
 			"kind" : "codemodel",
 			"version" : 
 			{
