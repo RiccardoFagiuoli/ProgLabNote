@@ -5,36 +5,33 @@
 #include "Collezioni.h"
 #include "Note.h"
 #include <iostream>
+#include "ConcreteObserver.h"
 
 using namespace std;
 
-Collezioni::Collezioni(const string& n): name(n) {};
-Collezioni::~Collezioni() {
-    /*
-    for (auto n : notes) {
-        notes.remove(n);
-        delete n;
-    }*/
+Collezioni::Collezioni(const string& n): name(n) {
+    this->addObserver(new ConcreteObserver());
 };
+Collezioni::~Collezioni() {};
 
 void Collezioni::addNote(Note *n) {
-    this->notes.push_back(n);
-    notifyObserver();
+    notes.push_back(n);
+    notifyObserver(true, name);
 }
 
 void Collezioni::removeNote(Note *n) {
-    if (this->notes.empty()) {
+    if (notes.empty()) {
         cout << "La collezione " << name << " e' vuota." << endl;
     }
     else {
         for (auto it = notes.begin(); it != notes.end(); it++) {
             if (*it == n) {
-                this->notes.erase(it);
+                notes.erase(it);
                 n->setCollection(NULL);
-                notifyObserver();
+                notifyObserver(false,name);
                 return;
             }
-            else if (it == notes.end()) {
+            if (it == notes.end()) {
                 cout << "la nota " << n->getTitle() << " non e' presente nella collezione " << name << "." << endl;
                 return;
             }
@@ -43,7 +40,7 @@ void Collezioni::removeNote(Note *n) {
 }
 
 void Collezioni::printCollezione() const {
-    if (this->getNumNotes() == 0) {
+    if (getNumNotes() == 0) {
         cout << "La collezione " << name << " e' vuota" << endl;
     }
     else {
@@ -61,14 +58,8 @@ void Collezioni::addObserver(Observer *o) {
 void Collezioni::removeObserver(Observer *o) {
     observers.remove(o);
 }
-
-void Collezioni::notifyObserver() {
-    if (this->getNotes().front() != NULL) {
-        cout << "Collezione " << this->getName() << " ha ";
-        this->getNotes().front()->update();
-        cout << " note" << endl;
-    }
-    else {
-        cout << "Collection " << name << " is empty." << endl;
+void Collezioni::notifyObserver(bool a,const string& n) {
+    for (auto o : observers) {
+        o->update(a,n);
     }
 }

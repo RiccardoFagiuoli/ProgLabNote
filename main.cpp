@@ -12,9 +12,11 @@
 #include <iostream>
 #include "Note.h"
 #include "Collezioni.h"
+#include "Importanti.h"
+
+Importanti* importantNotes = new Importanti("ImportantNotes");
 
 int main() {
-    //esempio di main
     Collezioni c0("Collezione0");
     Note n0("Nota0", "Testo0", &c0);
     c0.removeNote(&n0);
@@ -22,31 +24,39 @@ int main() {
     cout << endl;
 
     Collezioni c("Collezione1");
-    Note n1("Nota1", "Testo1", &c);
-    Note n2("Nota2", "Testo2", &c);
-    Note n3("Nota3", "Testo3", &c);
-    Note n4("Nota4", "Testo4", &c);
+    Note* n1= new Note("Nota1", "Testo1", &c);
+    Note* n2= new Note("Nota2", "Testo2", &c);
+    Note* n3= new Note("Nota3", "Testo3", &c);
+    Note* n4= new Note("Nota4", "Testo4", &c);
 
     cout << endl;
 
     Collezioni c2("Collezione2");
-    Note n5("Nota5", "Testo5", &c2);
-    Note n6("Nota6", "Testo6", &c2);
-    Note n7("Nota7", "Testo7", &c2);
-    Note n8("Nota8", "Testo8", &c2);
+    Note* n5= new Note("Nota5", "Testo5", &c2);
+    Note* n6= new Note("Nota6", "Testo6", &c2);
+    Note* n7= new Note("Nota7", "Testo7", &c2);
+    Note* n8= new Note("Nota8", "Testo8", &c2);
 
     cout << endl;
     //rimozione di una nota
-    n1.printNote();
-    c.removeNote(&n1);
-    c.removeNote(&n5);
+    n1->printNote();
+    c.removeNote(n1);
+
+    //blocco di una nota
+    n5->setLocked(true);
+    c.removeNote(n5);
+    //elimino una nota bloccata
+    n5->delNote();
+    n3->delNote();
 
     cout << endl;
     //print note 1 e 5
-    n1.printNote();
-    n2.printNote();
-    n3.printNote();
-    n4.printNote();
+    n0.printNote();
+    n1->printNote();
+    n2->printNote();
+    n5->printNote();
+
+
 
     cout << endl;
     cout << endl;
@@ -58,17 +68,16 @@ int main() {
 
     cout << endl;
     //aggiungo note a importanti
-    c.addImportant(&n1);
-    c.addImportant(&n2);
-    c2.addImportant(&n5);
+    importantNotes->addNote(n1);
+    importantNotes->addNote(n2);
+
 
     cout << endl;
     //stampo note importanti
-    c.printImportantNotes();
+    importantNotes->printImportantNotes();
 
     cout << endl;
     //rimuovo note importanti
-    c.removeImportant(&n1);
-
+    importantNotes->removeNote(n1);
     return 0;
 }

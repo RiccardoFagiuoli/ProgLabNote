@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ProgLabNote::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ProgLabNote-Debug-ee9911542067a3dc7172.json",
+					"jsonFile" : "target-ProgLabNote-Debug-3e9735a1e89eaf0e8bd7.json",
 					"name" : "ProgLabNote",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Riccardo/Documents/Documenti/UNIFI/I Anno/I Semestre/Fondamenti di Informatica/ProgLabNote/cmake-build-debug",
-		"source" : "C:/Users/Riccardo/Documents/Documenti/UNIFI/I Anno/I Semestre/Fondamenti di Informatica/ProgLabNote"
+		"build" : "C:/Users/Riccardo/CLionProjects/ProgLabNote/cmake-build-debug",
+		"source" : "C:/Users/Riccardo/CLionProjects/ProgLabNote"
 	},
 	"version" : 
 	{

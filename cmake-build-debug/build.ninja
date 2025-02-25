@@ -67,6 +67,18 @@ build CMakeFiles/ProgLabNote.dir/Note.cpp.obj: CXX_COMPILER__ProgLabNote_unscann
   OBJECT_DIR = CMakeFiles\ProgLabNote.dir
   OBJECT_FILE_DIR = CMakeFiles\ProgLabNote.dir
 
+build CMakeFiles/ProgLabNote.dir/Importanti.cpp.obj: CXX_COMPILER__ProgLabNote_unscanned_Debug C$:/Users/Riccardo/CLionProjects/ProgLabNote/Importanti.cpp || cmake_object_order_depends_target_ProgLabNote
+  DEP_FILE = CMakeFiles\ProgLabNote.dir\Importanti.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ProgLabNote.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProgLabNote.dir
+
+build CMakeFiles/ProgLabNote.dir/ConcreteObserver.cpp.obj: CXX_COMPILER__ProgLabNote_unscanned_Debug C$:/Users/Riccardo/CLionProjects/ProgLabNote/ConcreteObserver.cpp || cmake_object_order_depends_target_ProgLabNote
+  DEP_FILE = CMakeFiles\ProgLabNote.dir\ConcreteObserver.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ProgLabNote.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProgLabNote.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ProgLabNote
@@ -75,7 +87,7 @@ build CMakeFiles/ProgLabNote.dir/Note.cpp.obj: CXX_COMPILER__ProgLabNote_unscann
 #############################################
 # Link the executable ProgLabNote.exe
 
-build ProgLabNote.exe: CXX_EXECUTABLE_LINKER__ProgLabNote_Debug CMakeFiles/ProgLabNote.dir/main.cpp.obj CMakeFiles/ProgLabNote.dir/Collezioni.cpp.obj CMakeFiles/ProgLabNote.dir/Note.cpp.obj
+build ProgLabNote.exe: CXX_EXECUTABLE_LINKER__ProgLabNote_Debug CMakeFiles/ProgLabNote.dir/main.cpp.obj CMakeFiles/ProgLabNote.dir/Collezioni.cpp.obj CMakeFiles/ProgLabNote.dir/Note.cpp.obj CMakeFiles/ProgLabNote.dir/Importanti.cpp.obj CMakeFiles/ProgLabNote.dir/ConcreteObserver.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ProgLabNote.dir

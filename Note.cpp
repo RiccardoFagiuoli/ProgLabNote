@@ -3,67 +3,84 @@
 //
 #include <iostream>
 #include "Note.h"
+
+#include <mutex>
+
 #include "Collezioni.h"
-#include "Importanti.h"
 
 
 Note::Note(const string& tl, const string& txt, Collezioni* c, bool lck, bool i): title(tl), text(txt), collection(c), locked(lck), important(i) {
-    c->addObserver(this);
     c->addNote(this);
 }
+Note::~Note(){};
 
-Note::~Note() {
-    /*
-    if (this->collection != NULL) {
-        this->collection->removeObserver(this);
-        this->collection->removeNote(this);
-    }*/
+void Note::setTitle(const string& tl) {
+    if (!locked) {
+        title = tl;
+    }
+    else {
+        cout << "Nota bloccata" << endl;
+    }
+}
+void Note::setText(const string& txt) {
+    if (!locked) {
+        text = txt;
+    }
+    else {
+        cout << "Nota bloccata" << endl;
+    }
+}
+void Note::setLocked(bool lck) {
+        locked = lck;
 }
 void Note::setCollection(Collezioni* c) {
     if (!locked) {
         if (collection != NULL) {
-            collection->removeObserver(this);
+            collection->removeNote(this);
         }
         if (c != NULL) {
-            c->addObserver(this);
+            c->addNote(this);
         }
         collection = c;
     }
+    else {
+        cout << "Nota bloccata" << endl;
+    }
+}
+void Note::setImportance(bool i) {
+    important = i;
 }
 
-void Note::setImportant(bool i) {
+void Note::delNote() {
     if (!locked) {
-        if (i) {
-            impNote->addImportant(this);
-            if (!important) {
-                important = i;
-            }
+        string n= title;
+        if (collection != NULL) {
+            collection->removeNote(this);
         }
-        else {
-            impNote->removeImportant(this);
-            if (important) {
-                important = i;
-            }
-        }
+        /*
+        if (important) {
+            important = false;
+            ImportantNotes->removeNote(this);
+        }*/
+        delete this;
+        cout << "Nota " << n << " eliminata" << endl;
+    }
+    else {
+        cout << "Nota bloccata" << endl;
     }
 }
 
 void Note::printNote() const {
-    string coll;
+    string c;
     if (collection == NULL) {
-        coll= "NULL";
+        c="nessuna";
     }
     else {
-        coll= collection->getName();
+        c = collection->getName();
     }
     cout << "Titolo: " << title << endl;
     cout << "Testo: " << text << endl;
-    cout << "Collezione: " << coll << endl;
-    cout << "Lucchetto: " << locked << endl;
+    cout << "Bloccata: " << locked << endl;
     cout << "Importante: " << important << endl;
+    cout << "Collezione: " << c << endl;
 }
-
-void Note::update() {
-    int collSize= this->collection->getNumNotes();
-    cout << collSize;
-};
