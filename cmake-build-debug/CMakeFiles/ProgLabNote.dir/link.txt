@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\ProgLabNote.dir/objects.a
-"C:\PROGRA~1\JETBRA~1\CLion 2023.3.4\bin\mingw\bin\ar.exe" qc CMakeFiles\ProgLabNote.dir/objects.a @CMakeFiles\ProgLabNote.dir\objects1.rsp
-"C:\PROGRA~1\JETBRA~1\CLion 2023.3.4\bin\mingw\bin\g++.exe" -g -Wl,--whole-archive CMakeFiles\ProgLabNote.dir/objects.a -Wl,--no-whole-archive -o ProgLabNote.exe -Wl,--out-implib,libProgLabNote.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ProgLabNote.dir\linkLibs.rsp
