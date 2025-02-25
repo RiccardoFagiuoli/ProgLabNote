@@ -3,9 +3,6 @@
 //
 #include <iostream>
 #include "Note.h"
-
-#include <mutex>
-
 #include "Collezioni.h"
 
 
@@ -56,6 +53,10 @@ void Note::delNote() {
         string n= title;
         if (collection != NULL) {
             collection->removeNote(this);
+        }
+        if (important) {
+            //rimozionde della nota dalla lista delle importanti
+
         }
         delete this;
         cout << "Nota " << n << " eliminata" << endl;
