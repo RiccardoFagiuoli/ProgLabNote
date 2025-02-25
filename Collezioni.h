@@ -14,36 +14,33 @@ class Note;
 
 class Collezioni: public Subject {
     private:
-    string name;
     list<Note*> notes;
     list<Observer*> observers;
-
+    protected:
+    string name;
     public:
 
     Collezioni(const string& n);
-    ~Collezioni();
+    virtual ~Collezioni();
 
     string getName() const {
         return name;
     }
+    list<Note*> getNotes() const {
+        return notes;
+    }
 
-    void addNote(Note *n);
-
-    void removeNote(Note *n);
+    virtual void addNote(Note *n);
+    virtual void removeNote(Note *n);
 
     int getNumNotes() const {
         return notes.size();
     }
 
-    //getNote list
-    list<Note*> getNotes() const {
-        return notes;
-    }
-
     void printCollezione() const;
     void addObserver(Observer *o) override;
     void removeObserver(Observer *o) override;
-    void notifyObserver() override;
+    void notifyObserver(bool a,const string& n) override;
 };
 
 #endif //COLLEZIONI_H

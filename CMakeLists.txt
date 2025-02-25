@@ -11,4 +11,6 @@ add_executable(ProgLabNote main.cpp
         Observer.h
         Importanti.cpp
         Importanti.h
+        ConcreteObserver.cpp
+        ConcreteObserver.h
 )

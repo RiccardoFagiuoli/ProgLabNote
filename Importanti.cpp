@@ -9,28 +9,25 @@ using namespace std;
 
 Importanti::Importanti(const string& n):Collezioni(n){};
 
-Importanti* impNote = new Importanti("Importanti");
-
-Importanti* Importanti::getImportant() {
-    return impNote;
-}
-
-
-void Importanti::addImportant(Note *n) {
+void Importanti::addNote(Note *n) {
     importantNotes.push_back(n);
+    n->setImportance(true);
+    notifyObserver(true, name);
 }
 
-void Importanti::removeImportant(Note *n) {
+void Importanti::removeNote(Note *n) {
     if (!importantNotes.empty()) {
         for (auto it = importantNotes.begin(); it != importantNotes.end(); it++) {
             if (*it == n) {
                 importantNotes.erase(it);
+                n->setImportance(false);
+                notifyObserver(false ,name);
                 return;
             }
+            if (it == importantNotes.end()) {
+                cout << "La nota non e' presente tra quelle importanti"  << endl;
+            }
         }
-    }
-    else {
-        cout << "Non ci sono note importanti impossibile rimuovere"  << endl;
     }
 }
 

@@ -4,10 +4,13 @@
 
 #ifndef OBSERVER_H
 #define OBSERVER_H
+#include <string>
+
+using namespace std;
 
 class Observer {
     public:
-    virtual void update() = 0;
+    virtual void update(bool a,const string& n) = 0;
     virtual ~Observer() {};
 };
 
@@ -19,7 +22,7 @@ class Subject {
 
     virtual void removeObserver(Observer* o) = 0;
 
-    virtual void notifyObserver() = 0;
+    virtual void notifyObserver(bool a,const string& n) = 0;
 };
 
 #endif //OBSERVER_H

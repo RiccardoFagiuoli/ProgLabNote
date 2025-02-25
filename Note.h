@@ -5,14 +5,12 @@
 #ifndef NOTE_H
 #define NOTE_H
 
-#include <list>
 #include <string>
-#include "Observer.h"
 
 using namespace std;
 class Collezioni;
 
-class Note: public Observer{
+class Note{
     private:
     string title;
     string text;
@@ -36,37 +34,25 @@ class Note: public Observer{
     Collezioni& getCollection() const {
         return *collection;
     }
-
-    bool isImportant() const {
+    bool getImportance() const {
         return important;
     }
+    bool getLocked() const {
+        return locked;
+    }
+    Collezioni* getCollection() {
+        return collection;
+    }
 
-    void setTitle(string tl) {
-        title = tl;
-    }
-    void changeText(string txt) {
-        if (!locked) {
-            text = txt;
-        }
-    }
-    void setLocked(bool lck) {
-        locked = lck;
-    }
+    void setTitle(const string& tl);
+    void setText(const string& txt);
+    void setLocked(bool lck);
     void setCollection(Collezioni* c);
+    void setImportance(bool i);
 
-    void setImportant(bool i);
-
-    void delNote() {
-        if (!locked) {
-            delete this;
-        }
-    }
+    void delNote();
 
     void printNote() const;
-
-    void update() override;
-
-    void getCollection();
 };
 
 #endif //NOTE_H

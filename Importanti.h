@@ -12,23 +12,13 @@ class Importanti: public Collezioni{
     list<Note*> importantNotes;
     public:
     Importanti(const string& n);
-    //distruttore
-    ~Importanti() {
-        /*
-        for (auto it: importantNotes) {
-            removeNote(it);
-        }
-        */
-    }
+    ~Importanti() {};
     //getter e setter
-    Importanti* getImportant();
-
+    list<Note*> getImportant() const {
+        return importantNotes;
+    }
+    void addNote(Note *n) override;
+    void removeNote(Note *n) override;
     void printImportantNotes() const;
-    void addImportant(Note * n);
-    void removeImportant(Note * n);
-
 };
-
-
-
 #endif //IMPORTANTI_H
