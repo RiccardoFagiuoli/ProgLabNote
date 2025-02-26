@@ -77,7 +77,13 @@ int main() {
     importantNotes->printImportantNotes();
 
     cout << endl;
-    //rimuovo note importanti
+    //rimuovo da note importanti
     importantNotes->removeNote(n1);
+
+    //stampo
+    importantNotes->printImportantNotes();
+
+    //elimino nota marcata come importante
+    n2->delNote();
     return 0;
 }

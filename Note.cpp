@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Note.h"
 #include "Collezioni.h"
+#include "Importanti.h"
 
 
 Note::Note(const string& tl, const string& txt, Collezioni* c, bool lck, bool i): title(tl), text(txt), collection(c), locked(lck), important(i) {
@@ -55,7 +56,7 @@ void Note::delNote() {
             collection->removeNote(this);
         }
         if (important) {
-            //rimozionde della nota dalla lista delle importanti
+            impPtr->removeNote(this);
         }
         delete this;
         cout << "Nota " << n << " eliminata" << endl;

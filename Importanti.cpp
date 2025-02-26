@@ -7,7 +7,9 @@
 
 using namespace std;
 
-Importanti::Importanti(const string& n):Collezioni(n){};
+Importanti::Importanti(const string& n):Collezioni(n) {
+    Note::impPtr=this;
+};
 
 void Importanti::addNote(Note *n) {
     importantNotes.push_back(n);

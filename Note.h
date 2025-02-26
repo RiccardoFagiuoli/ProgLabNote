@@ -7,8 +7,11 @@
 
 #include <string>
 
+#include "Collezioni.h"
+
 using namespace std;
 class Collezioni;
+class Importanti;
 
 class Note{
     private:
@@ -19,6 +22,7 @@ class Note{
     bool important;
 
     public:
+    static Importanti* impPtr;
     Note(const string& tl, const string& txt, Collezioni* c = NULL, bool lck=false, bool i=false);
     ~Note();
 
