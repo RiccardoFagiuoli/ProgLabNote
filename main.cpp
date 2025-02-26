@@ -85,5 +85,6 @@ int main() {
 
     //elimino nota marcata come importante
     n2->delNote();
+
     return 0;
 }
