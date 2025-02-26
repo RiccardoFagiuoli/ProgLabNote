@@ -23,7 +23,7 @@ class Note{
 
     public:
     static Importanti* impPtr;
-    Note(const string& tl, const string& txt, Collezioni* c = NULL, bool lck=false, bool i=false);
+    Note(const string& tl, const string& txt, Collezioni* c = nullptr, bool lck=false, bool i=false);
     ~Note();
 
     string getTitle() const {
@@ -53,6 +53,7 @@ class Note{
     void setLocked(bool lck);
     void setCollection(Collezioni* c);
     void setImportance(bool i);
+    void changeCollection(Collezioni*  c);
 
     void delNote();
 

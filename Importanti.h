@@ -13,7 +13,7 @@ class Importanti: public Collezioni{
     public:
     Importanti(const string& n);
     ~Importanti() {};
-    //getter e setter
+
     list<Note*> getImportant() const {
         return importantNotes;
     }

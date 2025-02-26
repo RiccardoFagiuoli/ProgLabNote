@@ -6,6 +6,7 @@
 #include "Collezioni.h"
 #include "Importanti.h"
 
+Importanti* Note::impPtr=nullptr;
 
 Note::Note(const string& tl, const string& txt, Collezioni* c, bool lck, bool i): title(tl), text(txt), collection(c), locked(lck), important(i) {
     c->addNote(this);
@@ -33,10 +34,10 @@ void Note::setLocked(bool lck) {
 }
 void Note::setCollection(Collezioni* c) {
     if (!locked) {
-        if (collection != NULL) {
+        if (collection != nullptr) {
             collection->removeNote(this);
         }
-        if (c != NULL) {
+        if (c != nullptr) {
             c->addNote(this);
         }
         collection = c;
@@ -45,6 +46,25 @@ void Note::setCollection(Collezioni* c) {
         cout << "Nota bloccata" << endl;
     }
 }
+void Note::changeCollection(Collezioni *c) {
+    if (!locked) {
+        string origin = "nessuna";
+        string destination = "nessuna";
+        if (collection != nullptr) {
+            origin = collection->getName();
+
+        }
+        if (c != nullptr) {
+            destination = c->getName();
+        }
+        cout << "Collezione della nota " << this->getTitle() << " cambiata: " << origin << "-->" << destination << endl;
+        setCollection(c);
+    }
+    else {
+        cout << "Nota bloccata" << endl;
+    }
+}
+
 void Note::setImportance(bool i) {
     important = i;
 }
@@ -52,14 +72,14 @@ void Note::setImportance(bool i) {
 void Note::delNote() {
     if (!locked) {
         string n= title;
-        if (collection != NULL) {
+        cout << "Nota " << n << " eliminata" << endl;
+        if (collection != nullptr) {
             collection->removeNote(this);
         }
         if (important) {
             impPtr->removeNote(this);
         }
         delete this;
-        cout << "Nota " << n << " eliminata" << endl;
     }
     else {
         cout << "Nota bloccata" << endl;
@@ -68,7 +88,7 @@ void Note::delNote() {
 
 void Note::printNote() const {
     string c;
-    if (collection == NULL) {
+    if (collection == nullptr) {
         c="nessuna";
     }
     else {

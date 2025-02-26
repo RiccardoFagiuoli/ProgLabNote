@@ -152,6 +152,30 @@ Collezioni.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProgLabNote.dir\build.make CMakeFiles/ProgLabNote.dir/Collezioni.cpp.s
 .PHONY : Collezioni.cpp.s
 
+ConcreteObserver.obj: ConcreteObserver.cpp.obj
+.PHONY : ConcreteObserver.obj
+
+# target to build an object file
+ConcreteObserver.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProgLabNote.dir\build.make CMakeFiles/ProgLabNote.dir/ConcreteObserver.cpp.obj
+.PHONY : ConcreteObserver.cpp.obj
+
+ConcreteObserver.i: ConcreteObserver.cpp.i
+.PHONY : ConcreteObserver.i
+
+# target to preprocess a source file
+ConcreteObserver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProgLabNote.dir\build.make CMakeFiles/ProgLabNote.dir/ConcreteObserver.cpp.i
+.PHONY : ConcreteObserver.cpp.i
+
+ConcreteObserver.s: ConcreteObserver.cpp.s
+.PHONY : ConcreteObserver.s
+
+# target to generate assembly for a file
+ConcreteObserver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProgLabNote.dir\build.make CMakeFiles/ProgLabNote.dir/ConcreteObserver.cpp.s
+.PHONY : ConcreteObserver.cpp.s
+
 Importanti.obj: Importanti.cpp.obj
 .PHONY : Importanti.obj
 
@@ -236,6 +260,9 @@ help:
 	@echo ... Collezioni.obj
 	@echo ... Collezioni.i
 	@echo ... Collezioni.s
+	@echo ... ConcreteObserver.obj
+	@echo ... ConcreteObserver.i
+	@echo ... ConcreteObserver.s
 	@echo ... Importanti.obj
 	@echo ... Importanti.i
 	@echo ... Importanti.s

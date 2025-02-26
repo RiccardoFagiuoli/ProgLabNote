@@ -56,7 +56,11 @@ int main() {
     n2->printNote();
     n5->printNote();
 
+    cout << endl;
+    //cambio collezione
+    n6->changeCollection(&c);
 
+    n6->setCollection(&c);
 
     cout << endl;
     cout << endl;

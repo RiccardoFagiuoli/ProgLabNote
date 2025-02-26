@@ -27,7 +27,7 @@ void Collezioni::removeNote(Note *n) {
         for (auto it = notes.begin(); it != notes.end(); it++) {
             if (*it == n) {
                 notes.erase(it);
-                n->setCollection(NULL);
+                n->setCollection(nullptr);
                 notifyObserver(false,name);
                 return;
             }
