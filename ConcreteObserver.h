@@ -15,6 +15,9 @@ class ConcreteObserver: public Observer {
     public:
     ConcreteObserver() {count = 0;};
     ~ConcreteObserver() {};
+        int getCount() const {
+        return count;
+    }
     void update(bool a,const string& n) override;
 };
 

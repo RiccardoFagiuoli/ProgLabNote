@@ -17,6 +17,9 @@ class Importanti: public Collezioni{
     list<Note*> getImportant() const {
         return importantNotes;
     }
+        int getNumImportantNotes() const {
+        return importantNotes.size();
+    }
     void addNote(Note *n) override;
     void removeNote(Note *n) override;
     void printImportantNotes() const;

@@ -19,7 +19,7 @@ class Note{
     bool important;
 
     public:
-    Note(const string& tl, const string& txt, Collezioni* c = NULL, bool lck=false, bool i=false);
+    Note(const string& tl, const string& txt, Collezioni* c = nullptr, bool lck=false, bool i=false);
     ~Note();
 
     string getTitle() const {

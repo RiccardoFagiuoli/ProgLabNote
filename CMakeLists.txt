@@ -3,14 +3,27 @@ project(ProgLabNote)
 
 set(CMAKE_CXX_STANDARD 26)
 
-add_executable(ProgLabNote main.cpp
-        Collezioni.cpp
-        Collezioni.h
+# Libreria con codice reale
+add_library(core
         Note.cpp
-        Note.h
-        Observer.h
+        Collezioni.cpp
         Importanti.cpp
-        Importanti.h
         ConcreteObserver.cpp
-        ConcreteObserver.h
 )
+
+# Eseguibile principale
+add_executable(ProgLabNote main.cpp)
+target_link_libraries(ProgLabNote core)
+
+# Includi GoogleTest
+add_subdirectory(googletest)
+
+# Eseguibile dei test
+add_executable(tests tests/test_notes.cpp)
+target_link_libraries(tests core gtest gtest_main)
+
+# Trovo gli header
+target_include_directories(tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+enable_testing()
+add_test(NAME allTests COMMAND tests)

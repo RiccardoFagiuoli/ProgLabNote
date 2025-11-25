@@ -9,8 +9,10 @@
 #include "Collezioni.h"
 
 
-Note::Note(const string& tl, const string& txt, Collezioni* c, bool lck, bool i): title(tl), text(txt), collection(c), locked(lck), important(i) {
-    c->addNote(this);
+Note::Note(const string& tl, const string& txt, Collezioni* c, bool lck, bool i): title(tl), text(txt), locked(lck), important(i) {
+    if (c != nullptr) {
+        c->addNote(this);
+    }
 }
 Note::~Note(){};
 
@@ -62,7 +64,6 @@ void Note::delNote() {
             important = false;
             ImportantNotes->removeNote(this);
         }*/
-        delete this;
         cout << "Nota " << n << " eliminata" << endl;
     }
     else {

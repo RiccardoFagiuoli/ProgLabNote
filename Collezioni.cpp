@@ -6,6 +6,7 @@
 #include "Note.h"
 #include <iostream>
 #include "ConcreteObserver.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -19,23 +20,14 @@ void Collezioni::addNote(Note *n) {
     notifyObserver(true, name);
 }
 
-void Collezioni::removeNote(Note *n) {
-    if (notes.empty()) {
-        cout << "La collezione " << name << " e' vuota." << endl;
-    }
-    else {
-        for (auto it = notes.begin(); it != notes.end(); it++) {
-            if (*it == n) {
-                notes.erase(it);
-                n->setCollection(NULL);
-                notifyObserver(false,name);
-                return;
-            }
-            if (it == notes.end()) {
-                cout << "la nota " << n->getTitle() << " non e' presente nella collezione " << name << "." << endl;
-                return;
-            }
-        }
+void Collezioni::removeNote(Note* n) {
+    auto it = std::find(notes.begin(), notes.end(), n);
+    if (it != notes.end()) {
+        n->setCollection(nullptr);
+        notes.erase(it);
+        notifyObserver(false, name);
+    } else {
+        std::cout << "La nota " << n->getTitle() << " non e' presente nella collezione " << name << "." << std::endl;
     }
 }
 
