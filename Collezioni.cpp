@@ -21,6 +21,7 @@ void Collezioni::addNote(Note *n) {
 }
 
 void Collezioni::removeNote(Note* n) {
+    if (n==nullptr) return;
     auto it = std::find(notes.begin(), notes.end(), n);
     if (it != notes.end()) {
         n->setCollection(nullptr);
